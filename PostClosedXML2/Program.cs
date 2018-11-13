@@ -30,14 +30,14 @@ namespace PostClosedXML2
         worksheet.Cell("A1").Value = "Nombre";
         worksheet.Cell("B1").Value = "Color";
 
-        //Le damos el formato a la cabecera        
+        //-----------Le damos el formato a la cabecera----------------
         var rango = worksheet.Range("A1:B1");
-        rango.Style.Border.SetOutsideBorder(XLBorderStyleValues.Thick);
-        rango.Style.Border.SetInsideBorder(XLBorderStyleValues.Medium);
-        rango.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
-        rango.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
-        rango.Style.Font.FontSize = 14;
-        rango.Style.Fill.BackgroundColor = XLColor.AliceBlue;
+        rango.Style.Border.SetOutsideBorder(XLBorderStyleValues.Thick); //Generamos las lineas exteriores
+        rango.Style.Border.SetInsideBorder(XLBorderStyleValues.Medium); //Generamos las lineas interiores
+        rango.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center; //Alineamos horizontalmente
+        rango.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;  //Alineamos verticalmente
+        rango.Style.Font.FontSize = 14; //Indicamos el tamaño de la fuente
+        rango.Style.Fill.BackgroundColor = XLColor.AliceBlue; //Indicamos el color de background
         worksheet.Columns(1, 2).AdjustToContents();
 
         int nRow = 2;
