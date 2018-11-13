@@ -29,12 +29,11 @@ namespace PostClosedXML2
         //Generamos la cabecera
         worksheet.Cell("A1").Value = "Nombre";
         worksheet.Cell("B1").Value = "Color";
+
         //Le damos el formato a la cabecera        
         var rango = worksheet.Range("A1:B1");
-        rango.Style.Border.BottomBorder = XLBorderStyleValues.Thick;
-        rango.Style.Border.TopBorder = XLBorderStyleValues.Thick;
-        rango.Style.Border.LeftBorder = XLBorderStyleValues.Thick;
-        rango.Style.Border.RightBorder = XLBorderStyleValues.Thick;
+        rango.Style.Border.SetOutsideBorder(XLBorderStyleValues.Thick);
+        rango.Style.Border.SetInsideBorder(XLBorderStyleValues.Medium);
         rango.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
         rango.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
         rango.Style.Font.FontSize = 14;
@@ -52,12 +51,11 @@ namespace PostClosedXML2
 
         //Aplico los formatos
         rango = worksheet.Range(2, 1, nRow-1, 2);
-        rango.Style.Border.BottomBorder = XLBorderStyleValues.Medium;
-        rango.Style.Border.TopBorder = XLBorderStyleValues.Medium;
-        rango.Style.Border.LeftBorder = XLBorderStyleValues.Medium;
-        rango.Style.Border.RightBorder = XLBorderStyleValues.Medium;
-        rango.Style.Border.InsideBorder = XLBorderStyleValues.Medium;
-
+        rango.Style.Border.SetOutsideBorder(XLBorderStyleValues.Thick);
+        rango.Style.Border.SetInsideBorder(XLBorderStyleValues.Medium);
+        rango.Style.Font.SetFontName("Liberation Mono"); //Utilizo una fuente monoespacio
+        rango.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right;
+        rango.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
         workbook.SaveAs("CellFormating.xlsx");
       }
     }
